@@ -16,11 +16,21 @@ try:
             for char in string.punctuation:
                 text = text.replace(char, "")
             words = text.split()
+            frequency = {}
+            for word in words:
+                if word in frequency:
+                    frequency[word] += 1
+                else:
+                    frequency[word] = 1
+                    
+
+
             total_words = len(words)
             unique_words = len(set(words))
             
             print(f"The total words: {total_words}")
             print(f"The unique word set: {unique_words}")
+            print(f"word Frequency {frequency}")
     else:
         print("No file")
 
