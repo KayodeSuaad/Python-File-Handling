@@ -1,15 +1,31 @@
+import string
+
 files = {
     "1":"Cities.txt",
-    "2":"Fruitd.txt",
-    "3": "Water.txt"
+    "2":"Fruits.txt",
+    "3":"Water.txt",
 }
-file_input = input("Hi, Input the name of file: ")
-filename = files.get(file_input)
-if filename:
-    with open(filename) as f:
-        print(f.read().lower())
-else:
-    print("The file inputed can't be found.")
 
+try:
+    file_input = input("Hi, Input the name of file: ").strip()
+    filename = files.get(file_input)
+    if filename:
+        filename = filename.lower()
+        with open(filename) as f :
+            text = f.read()
+            for char in string.punctuation:
+                text = text.replace(char, "")
+            words = text.split()
+            total_words = len(words)
+            unique_words = len(set(words))
+            
+            print(f"The total words; {total_words}")
+            print(f"The unique word set: {unique_words}")
+    else:
+        print("No file")
 
+except FileNotFoundError:
+    print("The file you asked can't be found!!!")
+
+            
 
