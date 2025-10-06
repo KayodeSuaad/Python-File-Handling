@@ -19,7 +19,7 @@ try:
             total_words = len(words)
             unique_words = len(set(words))
             
-            print(f"The total words; {total_words}")
+            print(f"The total words: {total_words}")
             print(f"The unique word set: {unique_words}")
     else:
         print("No file")
